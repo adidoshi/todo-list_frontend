@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
-import { Row, Col, Card, Container, Button } from "react-bootstrap";
+import { Row, Container, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { deleteNote, listNotes } from "../redux/actions/notesActions";
@@ -75,10 +75,10 @@ const MainCard = ({ search }) => {
               .reverse()
               .map((note) => {
                 return (
-                  <Col key={note._id}>
-                    <Card>
-                      <Card.Body>
-                        <Card.Title>{note.title}</Card.Title>
+                  <div className="col-sm-6" key={note._id}>
+                    <div className="card">
+                      <div className="card-body">
+                        <h5 className="card-title">{note.title}</h5>
                         <Button
                           variant="outline-success"
                           size="sm"
@@ -96,9 +96,9 @@ const MainCard = ({ search }) => {
                           Delete
                         </Button>
                         <p>Created on: {note.createdAt.substring(0, 10)}</p>
-                      </Card.Body>
-                    </Card>
-                  </Col>
+                      </div>
+                    </div>
+                  </div>
                 );
               })}
         </Row>
