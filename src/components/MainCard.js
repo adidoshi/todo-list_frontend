@@ -77,7 +77,7 @@ const MainCard = ({ search }) => {
                 return (
                   <div className="col-sm-6" key={note._id}>
                     <div className="card">
-                      <div className="card-body">
+                      <div className="card-body change">
                         <h5 className="card-title">{note.title}</h5>
                         <Button
                           variant="outline-success"
