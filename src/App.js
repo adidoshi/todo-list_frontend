@@ -1,23 +1,29 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LoginScreen from "./screens/userAuth/LoginScreen";
-import RegisterScreen from "./screens/userAuth/RegisterScreen";
-import Main from "./components/Main";
-import Profile from "./screens/profile/Profile";
-import CreateNote from "./components/CreateNote";
-import UpdateNote from "./components/UpdateNote";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Edit from "./pages/Edit";
+import Register from "./pages/auth/Register";
+import ProtectedRoutes from "./ProtectedRoutes";
+import Login from "./pages/auth/Login";
 
 function App() {
   return (
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={Main} />
-          <Route exact path="/updatenote/:id" component={UpdateNote} />
-          <Route exact path="/createnote" component={CreateNote} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/login" component={LoginScreen} />
-          <Route exact path="/register" component={RegisterScreen} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+
+          <ProtectedRoutes exact path="/" component={Home}></ProtectedRoutes>
+          <ProtectedRoutes
+            exact
+            path="/profile"
+            component={Profile}></ProtectedRoutes>
+          <ProtectedRoutes
+            exact
+            path="/update/:id"
+            component={Edit}></ProtectedRoutes>
         </Switch>
       </Router>
     </>
