@@ -1,25 +1,28 @@
 # TO DO Notes App -
 
-### This is a Full Stack MERN application.
+### This is a complete Full Stack MERN application.
 
 ### Tech Stack -
 
 - ReactJs - Javascript library
-- Redux - For managing and centralizing application state
-- React Router Dom - Routing of all pages
-- Formik & yup validation - User sign in & sign up form
+- Redux Toolkit - For managing and centralizing application state.
+- React Router Dom - Routing/ redirecting of all pages
 
 #### Functionality-
 
-- Complete user authentiation.
-- CRUD for notes making -
+![image info](./public/readmeImg/readme1.png)
 
-Create a note with title, content with **Markdown** syntax feature.
-Update / delete note.
-List all notes.
+- Complete user authentiation using JWT Auth Token, Forkmik & yup for form validations.
 
-User profile -> Picture -> Edit details.
+![image info](./public/readmeImg/readme2.png)
+
+- User can create a note which includes content with **Markdown** syntax feature.
+- Update / delete a note.
+
+#### User profile page to update user details + avatar.
 
 #### Backend Repo -
+
+NodeJs + ExpressJs + MongoDb
 
 https://github.com/adidoshi/todo-list_backend
