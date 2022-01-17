@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Card, Col } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
-// import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import DeleteModal from "./DeleteModal";
 import Moment from "react-moment";
@@ -9,6 +8,7 @@ import Moment from "react-moment";
 const NoteCard = ({ modalHandler, note }) => {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
+  const contentStr = note?.content;
   return (
     <>
       <Col xs={12} md={6}>
@@ -23,32 +23,40 @@ const NoteCard = ({ modalHandler, note }) => {
           </Card.Header>
           <Card.Body>
             <Card.Title>{note?.title}</Card.Title>
-            <div style={{ minHeight: "100px" }}>
-              <ReactMarkdown>{note?.content}</ReactMarkdown>
+            <div style={{ minHeight: "50px" }}>
+              <ReactMarkdown>{`${contentStr.substr(0, 15)}...`}</ReactMarkdown>
             </div>
+            <Link to={`/view/${note?._id}`}>
+              <Button variant="primary fw-bold text-white" className="mt-2">
+                View
+              </Button>
+            </Link>
+
             <Link to={`/update/${note?._id}`}>
               <Button
                 variant="secondary fw-bold text-white"
+                className="ms-2 mt-2"
                 onClick={modalHandler}>
                 Edit
               </Button>
             </Link>
             <Button
               variant="danger fw-bold"
-              className="ms-2"
+              className="ms-2 mt-2"
               onClick={handleShow}>
               Delete
             </Button>
             <DeleteModal showModal={show} setShow={setShow} note={note} />
             <div style={{ margin: "10px 0" }}>
               <small>
-                Created: <Moment format="YYYY/MM/DD">{note?.createdAt}</Moment>{" "}
-                | <Moment format="hh:mm:ss">{note?.createdAt}</Moment>
-              </small>
-              <br />
-              <small style={{ margin: "1px 0" }}>
-                Updated: <Moment format="YYYY/MM/DD">{note?.updatedAt}</Moment>{" "}
-                | <Moment format="hh:mm:ss">{note?.updatedAt}</Moment>
+                Created:{" "}
+                <strong>
+                  <Moment format="YYYY/MM/DD">{note?.createdAt}</Moment>
+                </strong>{" "}
+                |{" "}
+                <em>
+                  <Moment format="hh:mm:ss">{note?.createdAt}</Moment>
+                </em>
               </small>
             </div>
           </Card.Body>

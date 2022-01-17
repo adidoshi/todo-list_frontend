@@ -6,6 +6,7 @@ import Edit from "./pages/Edit";
 import Register from "./pages/auth/Register";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Login from "./pages/auth/Login";
+import View from "./pages/View";
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
           <Route exact path="/register" component={Register} />
 
           <ProtectedRoutes exact path="/" component={Home}></ProtectedRoutes>
+          <ProtectedRoutes
+            exact
+            path="/view/:id"
+            component={View}></ProtectedRoutes>
           <ProtectedRoutes
             exact
             path="/profile"
