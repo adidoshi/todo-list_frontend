@@ -70,17 +70,6 @@ const UserDetailsForm = () => {
           </div>
         )}
 
-        {/* {userPending && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "10px",
-            }}>
-            <Spinner animation="border" />
-          </div>
-        )} */}
-
         <Form className="mt-5">
           <Form.Group className="mb-3" controlId="title">
             <Form.Label>Name</Form.Label>
@@ -94,14 +83,13 @@ const UserDetailsForm = () => {
           <Form.Group className="mb-3" controlId="content">
             <Form.Label>Email</Form.Label>
             <Form.Control
-              type="text"
+              type="email"
               rows={3}
               placeholder="Update Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="category">
             <Form.Label>Avatar URL</Form.Label>
             <Form.Control
@@ -111,7 +99,6 @@ const UserDetailsForm = () => {
               onChange={(e) => setPic(e.target.value)}
             />
           </Form.Group>
-
           <Button
             type="submit"
             variant="warning"
