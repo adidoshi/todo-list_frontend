@@ -16,6 +16,9 @@ const Home = () => {
 
   const { userInfo } = useSelector((state) => state.user);
   const { notesLoading } = useSelector((state) => state.notes);
+
+  const pinnedNotes = notesData && notesData.filter((note) => note.favorite);
+
   useEffect(() => {
     dispatch(fetchNotesAsync());
     if (!userInfo) {
@@ -42,6 +45,23 @@ const Home = () => {
             <Spinner animation="border" />
           </div>
         )}
+
+        {!pinnedNotes?.length ? (
+          <></>
+        ) : (
+          <>
+            {" "}
+            <h4>Pinned Notes</h4>
+            <Row>
+              {pinnedNotes &&
+                pinnedNotes.map((note) => (
+                  <NoteCard key={note._id} note={note} />
+                ))}
+            </Row>
+          </>
+        )}
+        <hr />
+        <h4 className="mb-4">Created Notes</h4>
         {notesData?.length > 0 ? (
           <Row>
             {notesData &&
@@ -51,6 +71,10 @@ const Home = () => {
                     .toLowerCase()
                     .includes(search.toLowerCase())
                 )
+                .filter((item) => !item.favorite)
+                .sort((p1, p2) => {
+                  return new Date(p2.createdAt) - new Date(p1.createdAt);
+                })
                 .map((note) => <NoteCard key={note._id} note={note} />)}
           </Row>
         ) : (

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ReactMarkdown from "react-markdown";
 import { createNoteAsync, fetchNotesAsync } from "../../redux/api/notesApi";
 
-const CreateNoteModal = (props) => {
+const CreateNoteModal = ({ showModal, setShowModal }) => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [content, setContent] = useState("");
@@ -16,6 +16,8 @@ const CreateNoteModal = (props) => {
     setContent("");
     setCategory("");
   };
+
+  const handleClose = () => setShowModal(false);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -32,14 +34,16 @@ const CreateNoteModal = (props) => {
 
   useEffect(() => {
     if (success) {
-      props.onHide();
+      handleClose();
     }
-  }, [success, props]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [success]);
 
   return (
     <>
       <Modal
-        {...props}
+        show={showModal}
+        onHide={handleClose}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered>

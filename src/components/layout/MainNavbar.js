@@ -13,7 +13,7 @@ import CreateNoteModal from "../home/CreateNoteModal";
 import { logout } from "../../redux/slices/userSlice";
 
 const MainNavbar = ({ setSearch }) => {
-  const [modalShow, setModalShow] = useState(false);
+  const [shouldShow, setShouldShow] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
   const logoutHandler = () => {
@@ -38,12 +38,12 @@ const MainNavbar = ({ setSearch }) => {
               <Button
                 className="me-2"
                 variant="outline-info"
-                onClick={() => setModalShow(true)}>
+                onClick={() => setShouldShow(!shouldShow)}>
                 Create
               </Button>
               <FormControl
                 type="search"
-                placeholder="Search"
+                placeholder="Search by title"
                 aria-label="Search"
                 className="me-5 hide-search"
                 onChange={(e) => setSearch(e.target.value)}
@@ -64,7 +64,7 @@ const MainNavbar = ({ setSearch }) => {
         </Container>
       </Navbar>
 
-      <CreateNoteModal show={modalShow} onHide={() => setModalShow(false)} />
+      <CreateNoteModal showModal={shouldShow} setShowModal={setShouldShow} />
     </>
   );
 };

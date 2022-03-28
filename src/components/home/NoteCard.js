@@ -9,15 +9,13 @@ const NoteCard = ({ modalHandler, note }) => {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const contentStr = note?.content;
+
   return (
     <>
       <Col xs={12} md={6}>
         <Card className="mb-4">
           <Card.Header className="fw-bold fs-6">
-            <Button
-              variant="outline-success"
-              size="sm"
-              className="mb-2 fw-bold">
+            <Button variant="outline-success" size="sm" className="fw-bold">
               • {note?.category}
             </Button>
           </Card.Header>

@@ -1,1 +1,1 @@
-export const BASE_URL = "https://todolistnotesapp.herokuapp.com";
+export const BASE_URL = "http://localhost:4000";

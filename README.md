@@ -8,21 +8,28 @@
 - Redux Toolkit - For managing and centralizing application state.
 - React Router Dom - Routing/ redirecting of all pages
 
-#### Functionality-
+### Backend -
+
+NodeJs + ExpressJs + MongoDb
+
+**[Repository](https://github.com/adidoshi/todo-list_backend) | [Postman Doc](https://documenter.getpostman.com/view/15329989/UVCCdiWt)**
+
+---
+
+### Functionality-
 
 ![image info](./public/readmeImg/readme1.png)
 
 - Complete user authentiation using JWT Auth Token, Forkmik & yup for form validations.
 
-![image info](./public/readmeImg/readme2.png)
+![image info](./public/readmeImg/readme3.png)
 
 - User can create a note which includes content with **Markdown** syntax feature.
-- Update / delete a note.
 
-#### User profile page to update user details + avatar.
+![image info](./public/readmeImg/readme2.png)
 
-#### Backend Repo -
+- Update / delete / view a note.
 
-NodeJs + ExpressJs + MongoDb
+![image info](./public/readmeImg/readme4.png)
 
-https://github.com/adidoshi/todo-list_backend
+- User profile page to update user details + avatar.
