@@ -5,6 +5,7 @@
 ### Tech Stack -
 
 - ReactJs - Javascript library
+- React Bootstrap - UI styling
 - Redux Toolkit - For managing and centralizing application state.
 - React Router Dom - Routing/ redirecting of all pages
 
