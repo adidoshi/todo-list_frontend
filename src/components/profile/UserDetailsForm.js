@@ -18,6 +18,7 @@ const UserDetailsForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(updateUserAsync({ name, email, pic }));
+    window.location.reload();
   };
 
   useEffect(() => {
